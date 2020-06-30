@@ -1,0 +1,13 @@
+.App {
+  padding: 100px;
+  line-height: 35px;
+}
+
+.scrollArea {
+  height: calc(100vh - 200px);
+  width: calc(100vw - 200px);
+  overflow: auto;
+}
+
+.inputArea {
+}
