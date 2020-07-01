@@ -56,7 +56,7 @@ function App() {
         backSpeed: 0,
         smartBackspace: false,
         showCursor: false,
-        onStringTyped(arrayPos, self) {
+        preStringTyped(arrayPos, self) {
           if (!self.buffer) {
             self.buffer = [];
           }

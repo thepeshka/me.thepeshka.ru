@@ -11,9 +11,24 @@ export default {
   "location": () => ["Russia, Veliky Novgorod"],
   "position": () => ["Web-developer @ ZenCat"],
   "career": () => [
-    "07/17\u00a0\u00a0Jun\u00a0QA\u00a0\u00a0\u00a007/18\u00a0\u00a0\u00a0Jun\u00a0Dev\u00a0\u00a0\u00a007/19\u00a0\u00a0\u00a0Mid\u00a0Dev\u00a0\u00a0\u00a012/19\u00a0\u00a0\u00a0Mid\u00a0Web-dev\u00a0\u00a0...",
-    "\u00a0\u00a0@---------------@-----------------@-----------------@-------------------@",
-    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0SPL\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0SPL\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0SPL\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0ZenCat"
+    "\u00a007/17\u00a0@",
+    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
+    "\u00a0\u00a0\u00a0SPL\u00a0|\u00a0Jun\u00a0QA",
+    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
+    "\u00a007/18\u00a0@",
+    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
+    "\u00a0\u00a0\u00a0SPL\u00a0|\u00a0Jun\u00a0Dev",
+    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
+    "\u00a007/19\u00a0@",
+    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
+    "\u00a0\u00a0\u00a0SPL\u00a0|\u00a0Mid\u00a0Dev",
+    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
+    "\u00a012/18\u00a0@",
+    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
+    "ZenCat\u00a0|\u00a0Mid\u00a0Web-dev",
+    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
+    "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0..."
   ],
-  "help": () => ["Command list: loadprofile, name, contacts, location, position, career, clear."]
+  "help": () => ["Command list: loadprofile, name, contacts, location, position, career, clear, exit."],
+  "exit": () => window.close()
 }
