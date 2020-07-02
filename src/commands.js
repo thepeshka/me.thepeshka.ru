@@ -1,6 +1,7 @@
 import React from 'react';
+import moment from 'moment';
 
-export default {
+const commands = {
   "loadprofile": (profileId) => profileId === "ER28-0653" ? ["Done"] : ["Error: Profile not found!"],
   "name": () => ["Ilya Peshekhonov"],
   "contacts": () => [
@@ -10,6 +11,7 @@ export default {
   ],
   "location": () => ["Russia, Veliky Novgorod"],
   "position": () => ["Web-developer @ ZenCat"],
+  "bday": () => [`02.06.1997 (${moment("19970602", "YYYYMMDD").fromNow().split(" ")[0]} y.o.)`],
   "career": () => [
     "\u00a007/17\u00a0@",
     "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
@@ -29,6 +31,7 @@ export default {
     "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
     "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0..."
   ],
-  "help": () => ["Command list: loadprofile, name, contacts, location, position, career, clear, exit."],
   "exit": () => window.close()
-}
+};
+commands["help"] = () => ["Command list: " + Object.keys(commands).join(", ")];
+export default commands;

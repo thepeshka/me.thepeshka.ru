@@ -42,6 +42,7 @@ function App() {
     const strings = [
       "loadprofile ER28-0653",
       "name",
+      "bday",
       "contacts",
       "location",
       "position",
