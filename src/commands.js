@@ -6,7 +6,7 @@ const commands = {
   "name": () => ["Ilya Peshekhonov"],
   "contacts": () => [
     <a href={"https://github.com/thepeshka"}>Github</a>,
-    <a href={"https://t.me/thepeshka"}>Telegram</a>,
+    <a href={"tg://resolve?domain=thepeshka"}>Telegram</a>,
     <a href={"mailto://ilya@thepeshka.ru"}>ilya@thepeshka.ru</a>
   ],
   "location": () => ["Russia, Veliky Novgorod"],
