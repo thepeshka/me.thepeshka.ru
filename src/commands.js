@@ -30,8 +30,7 @@ const commands = {
     "ZenCat\u00a0|\u00a0Mid\u00a0Web-dev",
     "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0|",
     "\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0..."
-  ],
-  "exit": () => window.close()
+  ]
 };
 commands["help"] = () => ["Command list: " + Object.keys(commands).join(", ")];
 export default commands;
