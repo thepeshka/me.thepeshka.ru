@@ -3,12 +3,16 @@ import './App.css';
 import {Cursor, UserInput} from "./components";
 import commands from "./commands";
 import Typed from "typed.js";
+import profilesEncoded from "./profiles.js";
+
+const profiles = JSON.parse(atob(profilesEncoded));
 
 function App() {
   const [buffer, setBuffer] = useState([]);
   const [text, setText] = useState("");
   const [commandsCount, setCommandsCount] = useState(7);
   const [animationInProgress, setAnimationInProgress] = useState(true);
+  const [profile, setProfile] = useState(profiles["ER28-0653"])
   const scrollRef = useRef();
   const animationLineRef = useRef();
   const typedjsRef = useRef();
@@ -26,8 +30,16 @@ function App() {
     buffer_.push("$ " + text);
     const command = command_parts[0];
     const command_args = command_parts.slice(1);
-    if (Object.keys(commands).includes(command)) {
-      buffer_ = [...buffer_, ...commands[command](...command_args)];
+    if (command === "loadprofile") {
+      if (command_args.length > 0 && Object.keys(profiles).includes(command_args[0])) {
+        setProfile(profiles[command_args[0]]);
+        buffer_ = [];
+        setAnimationInProgress(true);
+      } else {
+        buffer_ = [...buffer_, "Error: Profile not found!"];
+      }
+    } else if (Object.keys(commands).includes(command)) {
+      buffer_ = [...buffer_, ...commands[command](profile, ...command_args)];
     } else {
       if (command === "clear") {
         buffer_ = [];
@@ -40,7 +52,7 @@ function App() {
   };
   const animate = () => {
     const strings = [
-      "loadprofile ER28-0653",
+      `loadprofile ${profile.id}`,
       "name",
       "bday",
       "contacts",
@@ -67,7 +79,7 @@ function App() {
           const command = command_parts[0];
           const command_args = command_parts.slice(1);
           if (Object.keys(commands).includes(command)) {
-            self.buffer = [...self.buffer, ...commands[command](...command_args)];
+            self.buffer = [...self.buffer, ...commands[command](profile, ...command_args)];
           }
           setBuffer(self.buffer);
         },
@@ -83,7 +95,7 @@ function App() {
   });
   useEffect(() => {
     animate();
-  }, []);
+  }, [profile]);
   return (
     <div className="App">
       <div ref={scrollRef} className="scrollArea">
