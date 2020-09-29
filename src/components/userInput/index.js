@@ -16,7 +16,7 @@ const InputStyled = styled.input`
 `;
 
 
-export const UserInput = ({onTextChange: onTextChange_, onSubmit: onSubmit_, allowed}) => {
+export const UserInput = ({onTextChange: onTextChange_, onSubmit: onSubmit_, value, allowed}) => {
   const [text, setText] = useState("");
   const inputRef = useRef();
 
@@ -44,6 +44,10 @@ export const UserInput = ({onTextChange: onTextChange_, onSubmit: onSubmit_, all
   useEffect(() => {
     focus();
   }, [allowed]);
+
+  useEffect(() => {
+    if (!allowed) setText(value);
+  }, [value, allowed])
 
   return <form onSubmit={onSubmit}>
     <InputStyled ref={inputRef} onChange={e => onTextChange(e.target.value)} value={text} disabled={!allowed}/>
