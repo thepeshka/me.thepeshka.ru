@@ -9,6 +9,24 @@
   width: 90vw;
   overflow: auto;
 }
+.scrollArea::-webkit-scrollbar {
+  width: 6px;
+  height: 3px;
+}
+.scrollArea::-webkit-scrollbar-track {
+  background: none;
+}
+.scrollArea::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+}
+.scrollArea::-webkit-scrollbar-thumb:hover {
+  background-color: white;
+}
+.scrollArea::-webkit-scrollbar-thumb:active {
+  background-color: #ec693c;
+}
 
 .inputArea {
 }
