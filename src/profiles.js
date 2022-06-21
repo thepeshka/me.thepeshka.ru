@@ -22,7 +22,7 @@ const profiles = {
       "07/18 - Jun Dev @ SPL - 07/19",
       "07/19 - Mid Dev @ SPL - 12/19",
       "12/19 - Mid Web-dev @ ZenCat - 07/21",
-      "07/21 - Mid Back-dev @ The Coders - 06/21"
+      "07/21 - Mid Back-dev @ The Coders - 06/22"
     ],
     "specialty": ["Backend development", "Django", "DRF"]
   },
