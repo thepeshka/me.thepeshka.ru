@@ -2,9 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import './App.css';
 import {Cursor, TextAnimation, UserInput} from "./components";
 import commands from "./commands";
-import profilesEncoded from "./profiles.js";
-
-const profiles = JSON.parse(atob(profilesEncoded));
+import profiles from "./profiles.js";
 
 function App() {
   const [buffer, setBuffer] = useState([]);
@@ -71,7 +69,7 @@ function App() {
         "bday",
         "contacts",
         "location",
-        "position",
+        "specialty",
         "career",
         "help"
       ]} onSubmit={commandSubmit} setText={setText} onFinish={() => setAnimationInProgress(false)} />}

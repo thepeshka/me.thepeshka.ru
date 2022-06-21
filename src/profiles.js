@@ -1,1 +1,48 @@
-export default "eyJFUjI4LTA2NTMiOnsiaWQiOiJFUjI4LTA2NTMiLCJuYW1lIjoiSWx5YSBQZXNoZWtob25vdiIsImNvbnRhY3RzIjpbeyJsaW5rIjoiaHR0cHM6Ly9naXRodWIuY29tL3RoZXBlc2hrYSIsImxhYmVsIjoiR2l0aHViIn0seyJsaW5rIjoidGc6Ly9yZXNvbHZlP2RvbWFpbj10aGVwZXNoa2EiLCJsYWJlbCI6IlRlbGVncmFtIn0seyJsaW5rIjoibWFpbHRvOi8vaWx5YUB0aGVwZXNoa2EucnUiLCJsYWJlbCI6ImlseWFAdGhlcGVzaGthLnJ1In1dLCJsb2NhdGlvbiI6IlJ1c3NpYSwgVmVsaWt5IE5vdmdvcm9kIiwicG9zaXRpb24iOiJXZWItZGV2ZWxvcGVyIEAgWmVuQ2F0IiwiZG9iIjoiMTk5NzA2MDIiLCJjYXJlZXIiOlsioKCgoKAwNy8xN6BAIiwioKCgoKCgoKCgoKB8IiwioKCgoKCgoFNQTKB8oEp1bqBRQSIsIqCgoKCgoKCgoKCgfCIsIqCgoKCgMDcvMTigQCIsIqCgoKCgoKCgoKCgfCIsIqCgoKCgoKBTUEygfKBKdW6gRGV2IiwioKCgoKCgoKCgoKB8IiwioKCgoKAwNy8xOaBAIiwioKCgoKCgoKCgoKB8IiwioKCgoKCgoFNQTKB8oE1pZKBEZXYiLCKgoKCgoKCgoKCgoHwiLCKgoKCgoDEyLzE5oEAiLCKgoKCgoKCgoKCgoHwiLCKgoKCgWmVuQ2F0oHygTWlkoFdlYi1kZXYiLCKgoKCgoKCgoKCgoHwiLCKgoKCgoDA3LzIxoEAiLCKgoKCgoKCgoKCgoHwiLCJUaGWgQ29kZXJzoHygTWlkoGJhY2tlbmSgZGV2IiwioKCgoKCgoKCgoKB8IiwioKCgoKCgoKCgoC4uLiJdfSwiRVIyOC0wNjUyIjp7ImlkIjoiRVIyOC0wNjUyIiwibmFtZSI6IkVsbGlvdCBBbGRlcnNvbiIsImNvbnRhY3RzIjpbeyJsaW5rIjoidGVsOjIxMjU1NTAxNzkiLCJsYWJlbCI6IigyMTIpIDU1NS0wMTc5In1dLCJsb2NhdGlvbiI6Ik5ZQywgVVNBIiwicG9zaXRpb24iOiJIYWNrZXIgQCBmc29jaWV0eSIsImRvYiI6IjE5ODYwOTE3IiwiY2FyZWVyIjpbIkFsbFNhZmUgQ3liZXJTZWN1cml0eSAtPiBmc29jaWV0eSAtPiBFIENvcnAgLT4gZnNvY2lldHkiXX19";
+const profiles = {
+  "ER28-0653": {
+    "id": "ER28-0653",
+    "name": "Ilya Peshekhonov",
+    "contacts": [
+      {
+        "link": "https://github.com/thepeshka",
+        "label": "Github"
+      }, {
+        "link": "tg://resolve?domain=thepeshka",
+        "label": "Telegram"
+      },
+      {
+        "link": "mailto://ilya@thepeshka.ru",
+        "label": "ilya@thepeshka.ru"
+      }
+    ],
+    "location": "Russia, Veliky Novgorod",
+    "dob": "19970602",
+    "career": [
+      "07/17 - Jun QA @ SPL - 07/18",
+      "07/18 - Jun Dev @ SPL - 07/19",
+      "07/19 - Mid Dev @ SPL - 12/19",
+      "12/19 - Mid Web-dev @ ZenCat - 07/21",
+      "07/21 - Mid Back-dev @ The Coders - 06/21"
+    ],
+    "specialty": ["Backend development", "Django", "DRF"]
+  },
+  "ER28-0652": {
+    "id": "ER28-0652",
+    "name": "Elliot Alderson",
+    "contacts": [
+      {
+        "link": "tel:2125550179",
+        "label": "(212) 555-0179"
+      }
+    ],
+    "location": "NYC, USA",
+    "dob": "19860917",
+    "career": ["AllSafe CyberSecurity -> fsociety -> E Corp -> fsociety"],
+    "specialty": ["Cybersecurity", "Social engineering", "Hacking"]
+  }
+};
+profiles["ER28-0653"].career = profiles["ER28-0653"].career.map(
+  line => line.replaceAll(" ", " ")
+)
+
+export default profiles;
