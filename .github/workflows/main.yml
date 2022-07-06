@@ -29,10 +29,12 @@ jobs:
           CI=false yarn build
       
       - name: Deploy to thepeshka.github.io
-        run: |
-          git clone git@github.com:thepeshka/thepeshka.github.io.git ./ghiorepo
-          cd ./ghiorepo
-          rm -r ./*
-          cp -r ../build ./
-          git commit -m "https://github.com/thepeshka/me.thepeshka.ru/commit/$GITHUB_SHA"
-          git push
+        uses: tagus/git-deploy@v0.4.1
+        with:
+          changes: public
+          repository: git@github.com:thepeshka/thepeshka.github.io.git
+          ssh_key: ${{ secrets.REPO_DEPLOY_KEY }}
+          name: thepeshka
+          email: ilya@thepeshka.ru
+          message: https://github.com/thepeshka/me.thepeshka.ru/commit/$GITHUB_SHA
+          clean_repo: true
