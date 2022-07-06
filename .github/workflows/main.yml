@@ -31,7 +31,7 @@ jobs:
       - name: Deploy to thepeshka.github.io
         uses: tagus/git-deploy@v0.4.1
         with:
-          changes: public
+          changes: build
           repository: git@github.com:thepeshka/thepeshka.github.io.git
           ssh_key: ${{ secrets.REPO_DEPLOY_KEY }}
           name: thepeshka
