@@ -26,7 +26,7 @@ jobs:
       - name: Build
         run: |
           yarn
-          yarn build
+          CI=false yarn build
       
       - name: Deploy to thepeshka.github.io
         run: |
