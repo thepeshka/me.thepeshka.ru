@@ -9,6 +9,7 @@ const CursorStyled = styled.div`
     position: absolute;
     display: ${p => p.visible ? "inline" : "none"};
     top: -1em;
+    opacity: 85%;
   }
 `;
 

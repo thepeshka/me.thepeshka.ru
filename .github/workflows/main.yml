@@ -27,7 +27,7 @@ jobs:
         run: |
           yarn
           CI=false yarn build
-      
+
       - name: Deploy to thepeshka.github.io
         uses: tagus/git-deploy@v0.4.1
         with:
@@ -38,3 +38,12 @@ jobs:
           email: ilya@thepeshka.ru
           message: https://github.com/thepeshka/me.thepeshka.ru/commit/{{ GITHUB_SHA }}
           clean_repo: true
+
+      - name: Deploy to thepeshka.ru
+        uses: easingthemes/ssh-deploy@v4.1.8
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "build/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}

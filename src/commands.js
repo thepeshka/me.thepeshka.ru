@@ -7,9 +7,9 @@ const commands = {
   "name": (profile) => [profile.name],
   "contacts": (profile) => profile.contacts.map(({link, label}, i) => <a href={link} key={i}>{label}</a>),
   "location": (profile) => [profile.location],
-  "bday": ({dob}) => [`${moment(dob, "YYYYMMDD").format("DD.MM.YYYY")} (${getYearsOld(moment(dob, "YYYYMMDD"))} y.o.)`],
+  "bday": ({dob, showAge}) => [`${moment(dob, "YYYYMMDD").format("DD.MM.YYYY")}${showAge ? ` (${getYearsOld(moment(dob, "YYYYMMDD"))} y.o.)` : ''}`],
   "career": (profile) => profile.career,
   "specialty": (profile) => profile.specialty
 };
-commands["help"] = () => ["Command list: " + Object.keys(commands).join(", ")];
+commands["help"] = () => ["Available commands: " + Object.keys(commands).join(", ") + ", loadprofile"];
 export default commands;

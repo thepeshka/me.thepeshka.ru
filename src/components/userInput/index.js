@@ -16,7 +16,7 @@ const InputStyled = styled.input`
 `;
 
 
-export const UserInput = ({onTextChange: onTextChange_, onSubmit: onSubmit_, value, allowed}) => {
+export const UserInput = ({onTextChange: onTextChange_, onSubmit: onSubmit_, onPositionChange, value, allowed}) => {
   const [text, setText] = useState("");
   const inputRef = useRef();
 
@@ -37,6 +37,11 @@ export const UserInput = ({onTextChange: onTextChange_, onSubmit: onSubmit_, val
     }
   };
 
+  const onSelect = () => {
+    inputRef.current.selectionStart = inputRef.current.selectionEnd;
+    onPositionChange(inputRef.current.selectionStart);
+  }
+
   useEffect(() => {
     document.addEventListener("click", focus);
   }, []);
@@ -50,6 +55,6 @@ export const UserInput = ({onTextChange: onTextChange_, onSubmit: onSubmit_, val
   }, [value, allowed])
 
   return <form onSubmit={onSubmit}>
-    <InputStyled ref={inputRef} onChange={e => onTextChange(e.target.value)} value={text} disabled={!allowed}/>
+    <InputStyled ref={inputRef} onSelect={onSelect} onChange={e => onTextChange(e.target.value)} value={text} disabled={!allowed}/>
   </form>;
 };

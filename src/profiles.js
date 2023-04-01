@@ -17,6 +17,7 @@ const profiles = {
     ],
     "location": "Russia, Veliky Novgorod",
     "dob": "19970602",
+    "showAge": true,
     "career": [
       "07/17 - Jun QA @ SPL - 07/18",
       "07/18 - Jun Dev @ SPL - 07/19",
@@ -37,6 +38,7 @@ const profiles = {
     ],
     "location": "NYC, USA",
     "dob": "19860917",
+    "showAge": false,
     "career": ["AllSafe CyberSecurity -> fsociety -> E Corp -> fsociety"],
     "specialty": ["Cybersecurity", "Social engineering", "Hacking"]
   }
