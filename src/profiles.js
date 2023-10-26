@@ -11,8 +11,8 @@ const profiles = {
         "label": "Telegram"
       },
       {
-        "link": "mailto://ilya@thepeshka.ru",
-        "label": "ilya@thepeshka.ru"
+        "link": "mailto://ilya@peshekhonov-dev.ru",
+        "label": "ilya@peshekhonov-dev.ru"
       }
     ],
     "location": "Russia, Veliky Novgorod",
@@ -23,9 +23,19 @@ const profiles = {
       "07/18 - Jun Dev @ SPL - 07/19",
       "07/19 - Mid Dev @ SPL - 12/19",
       "12/19 - Mid Web-dev @ ZenCat - 07/21",
-      "07/21 - Mid Back-dev @ The Coders - 06/22"
+      "07/21 - Mid Back-dev @ The Coders - 06/22",
+      "01/23 - Mid Back-dev @ Thesis",
     ],
-    "specialty": ["Backend development", "Django", "DRF"]
+    "specialty": [
+      "Backend development",
+      "Python",
+      "Django",
+      "Django REST framework",
+      "Django-channels",
+      "PostgreSQL",
+      "Docker",
+      "Linux"
+    ]
   },
   "ER28-0652": {
     "id": "ER28-0652",
