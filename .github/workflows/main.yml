@@ -13,34 +13,34 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+  # # This workflow contains a single job called "build"
+  # build:
+  #   # The type of runner that the job will run on
+  #   runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
+  #   # Steps represent a sequence of tasks that will be executed as part of the job
+  #   steps:
+  #     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 16
 
-      - name: Build
-        id: build
-        run: |
-          yarn
-          CI=false yarn build
+  #     - name: Build
+  #       id: build
+  #       run: |
+  #         yarn
+  #         CI=false yarn build
 
-      - name: Archive build
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: build
-        if: steps.build.conclusion == 'success'
+  #     - name: Archive build
+  #       uses: actions/upload-artifact@v4
+  #       with:
+  #         name: build
+  #         path: build
+  #       if: steps.build.conclusion == 'success'
 
   deploy:
-    needs: [build]
+    # needs: [build]
     runs-on: ubuntu-latest
     steps:
       - name: Download build
@@ -49,23 +49,21 @@ jobs:
         with:
           name: build
           path: build
+          run-id: 11608513716
 
       - name: Deploy to thepeshka.github.io
+        uses: cpina/github-action-push-to-another-repository@main
         env:
-          changes: build
-          repository: git@github.com:thepeshka/thepeshka.github.io.git
-          ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          name: thepeshka
-          email: ilya@thepeshka.ru
-          message: https://github.com/thepeshka/me.thepeshka.ru/commit/${{ github.sha }}
-        run: |
-          set -ex
-          echo $ssh_key | ssh-add
-          ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-          git clone --depth=1 $repository ./repo
-          git add -A
-          git commit -m "$message"
-          git push
+          SSH_DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+
+        with:
+          source-directory: build/
+          destination-github-username: thepeshka
+          destination-repository-name: thepeshka.github.io
+          user-name: Autodeploy
+          user-email: ilya@thepeshka.ru
+          commit-message: https://github.com/thepeshka/me.thepeshka.ru/commit/${{ github.sha }}
+          target-branch: "master"
 
       - name: Deploy to thepeshka.ru
         uses: easingthemes/ssh-deploy@v5.1.1
