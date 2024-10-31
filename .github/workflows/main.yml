@@ -39,7 +39,7 @@ jobs:
           ssh_key: ${{ secrets.REPO_DEPLOY_KEY }}
           name: thepeshka
           email: ilya@thepeshka.ru
-          message: https://github.com/thepeshka/me.thepeshka.ru/commit/{{ GITHUB_SHA }}
+          message: https://github.com/thepeshka/me.thepeshka.ru/commit/${{ GITHUB_SHA }}
           clean_repo: true
 
       - name: Deploy to thepeshka.ru
