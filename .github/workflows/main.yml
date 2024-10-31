@@ -48,11 +48,12 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: build
+          path: build
 
       - name: Deploy to thepeshka.github.io
         uses: tagus/git-deploy@v0.5.0
         with:
-          changes: .
+          changes: build
           repository: git@github.com:thepeshka/thepeshka.github.io.git
           ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
           name: thepeshka
@@ -62,8 +63,9 @@ jobs:
         if: steps.download-artifact.conclusion == 'success'
 
       - name: Deploy to thepeshka.ru
-        uses: easingthemes/ssh-deploy@v4.1.8
+        uses: easingthemes/ssh-deploy@v5.1.1
         env:
+          SOURCE: "build/"
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
