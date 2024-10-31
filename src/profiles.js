@@ -24,7 +24,7 @@ const profiles = {
       "07/19 - Mid Dev @ SPL - 12/19",
       "12/19 - Mid Web-dev @ ZenCat - 07/21",
       "07/21 - Mid Back-dev @ The Coders - 06/22",
-      "01/23 - Mid Back-dev @ Thesis",
+      "01/23 - Mid Back-dev @ Thesis - 10/22",
     ],
     "specialty": [
       "Backend development",
