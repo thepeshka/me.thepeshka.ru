@@ -32,7 +32,7 @@ jobs:
           CI=false yarn build
 
       - name: Deploy to thepeshka.github.io
-        uses: tagus/git-deploy@v0.4.1
+        uses: tagus/git-deploy@v0.5.0
         with:
           changes: build
           repository: git@github.com:thepeshka/thepeshka.github.io.git
