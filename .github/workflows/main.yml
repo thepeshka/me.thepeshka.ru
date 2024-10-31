@@ -29,6 +29,7 @@ jobs:
           node-version: 16
 
       - name: Build
+        id: build
         run: |
           yarn
           CI=false yarn build
@@ -38,6 +39,7 @@ jobs:
         with:
           name: build
           path: build
+        if: steps.build.conclusion == 'success'
 
   deploy:
     concurrency:
@@ -45,6 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download build
+        id: download-artifact
         uses: actions/download-artifact@v4
         with:
           name: build
@@ -59,12 +62,13 @@ jobs:
           email: ilya@thepeshka.ru
           message: https://github.com/thepeshka/me.thepeshka.ru/commit/${{ github.sha }}
           clean_repo: true
+        if: steps.download-artifact.conclusion == 'success'
 
       - name: Deploy to thepeshka.ru
         uses: easingthemes/ssh-deploy@v4.1.8
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          SOURCE: "build/"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.REMOTE_TARGET }}
+        if: steps.download-artifact.conclusion == 'success'
