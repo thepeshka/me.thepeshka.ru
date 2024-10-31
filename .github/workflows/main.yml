@@ -49,17 +49,10 @@ jobs:
         with:
           name: build
 
-      - name: Debug
-        run: |
-          pwd
-          ls -lah .
-          ls -lah /home/runner/work/me.thepeshka.ru
-          ls -lah /home/runner/work/me.thepeshka.ru/me.thepeshka.ru
-
       - name: Deploy to thepeshka.github.io
         uses: tagus/git-deploy@v0.5.0
         with:
-          changes: build
+          changes: .
           repository: git@github.com:thepeshka/thepeshka.github.io.git
           ssh_key: ${{ secrets.SSH_PRIVATE_KEY }}
           name: thepeshka
